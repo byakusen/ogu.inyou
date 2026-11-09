@@ -143,7 +143,7 @@ h1 em{font-style:normal;color:var(--orange)}
 .result .score{font-size:56px;font-weight:800;color:var(--orange)}
 .result p{font-size:19px;line-height:1.8;margin:0;max-width:40em}
 
-/* ④ 出典を書こう */
+/* ⑥ 出典を書こう */
 .v4{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:16px}
 .book{display:grid;grid-template-rows:auto 1fr;gap:10px;min-height:0}
 .bookset{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}
@@ -179,7 +179,7 @@ h1 em{font-style:normal;color:var(--orange)}
 .slot .ph{color:var(--sub);font-weight:700;font-size:13px}
 .howto{font-size:15px;font-weight:700;color:var(--sub)}
 
-/* ⑤ 引用してみよう */
+/* ⑦ 引用してみよう */
 .v5{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
 .srcbook{display:flex;flex-direction:column;gap:10px;min-height:0}
 .sen{display:block;width:100%;text-align:left;border:2px solid transparent;background:transparent;border-radius:12px;padding:8px 10px;font-size:clamp(16px,1.4vw,19px);line-height:1.85;cursor:pointer;transition:background .2s,border-color .2s}
@@ -225,6 +225,75 @@ h1 em{font-style:normal;color:var(--orange)}
 .wdesc p{margin:0;font-size:clamp(18px,1.7vw,26px);line-height:2.15;font-weight:700}
 .whint{flex:none;background:var(--purplebg);border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.7;font-weight:700;color:var(--sub)}
 
+/* タブが7こより多いときは、5こずつ2だん */
+.tabs.many{grid-template-columns:repeat(5,1fr)}
+.tabs.many .tab{padding:7px 8px}
+.tabs.many .tab b{font-size:16px}
+@media (max-height:860px){ .tabs.many .tab small{display:none} }
+
+/* 文の中のおせる言葉（④・⑤で使う） */
+.chunk{cursor:pointer;border-radius:4px;padding:2px 1px;transition:background .2s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.fin .chunk{cursor:default}
+
+/* ④ どこが引用？ */
+.pens{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pen{border:3px solid transparent;border-radius:999px;padding:8px 20px;font-size:16px;font-weight:800;cursor:pointer;transition:transform .15s,box-shadow .2s,border-color .2s}
+.pen.q{background:var(--orangebg);color:var(--orange)} .pen.s{background:var(--bluebg);color:var(--blue)}
+.pen.x{background:var(--glass2);color:var(--sub);border-color:var(--line)}
+.pen.on{border-color:currentColor;box-shadow:0 4px 12px rgba(0,0,0,.12);transform:translateY(-1px)}
+.mkpaper{font-size:clamp(17px,1.6vw,22px);line-height:2.35}
+.mk{border-bottom:2px dotted var(--sub)}
+.mk:hover{background:rgba(127,127,127,.12)}
+.mk.q-part{background:var(--orangebg);border-bottom:3px solid var(--orange)}
+.mk.s-part{background:var(--bluebg);border-bottom:3px solid var(--blue)}
+.mk.bad{outline:3px solid var(--red);outline-offset:1px}
+
+/* ⑤ まちがいを直そう */
+.fxpaper{font-size:clamp(16px,1.45vw,20px);line-height:2.15}
+.fxc:hover{background:var(--orangebg)}
+.fxc.miss{background:var(--glass);color:var(--sub)}
+.fxc.found{background:var(--redbg);text-decoration:underline wavy var(--red);text-underline-offset:6px}
+.rbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.rbtns .opt{padding:10px 14px;font-weight:700}
+.rbtns .opt.right:only-child{grid-column:1/-1}
+.fxbox .orig{font-size:15px;line-height:1.7}
+
+/* ⑦ むずかしい（はんいをえらぶ） */
+.sen.rng{border-color:var(--orange);background:var(--orangebg)}
+.sen.rng.bad{border-color:var(--red);background:var(--redbg)}
+.lvseg button{padding:6px 14px;font-size:14px}
+.hardbook{gap:4px}
+.hardbook .sen{padding:5px 10px;line-height:1.7}
+
+/* ⑧ 書いてみよう */
+.v9{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px}
+.wform{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;align-content:start;overflow:auto;min-height:0}
+.wform label{display:flex;flex-direction:column;gap:3px;font-size:13px;font-weight:800;color:var(--sub)}
+.wform .full{grid-column:1/-1}
+.wform input,.wform textarea{font-family:inherit;font-size:16px;color:var(--ink);background:var(--glass);border:2px solid var(--line);border-radius:10px;padding:6px 10px;resize:none;line-height:1.6;transition:border-color .2s}
+.wform input:focus,.wform textarea:focus{outline:none;border-color:var(--purple)}
+.wout{display:flex;flex-direction:column;gap:10px;min-height:0}
+.wout .paper{flex:1}
+.blank{color:var(--sub);background:rgba(127,127,127,.16);border-radius:6px;padding:0 6px;font-size:.82em;font-weight:700}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:14px;font-weight:700}
+.checks .ok{color:var(--green)} .checks .no{color:var(--sub)}
+#printArea{display:none}
+@media print{
+  @page{size:A4;margin:14mm}
+  html,body{height:auto}
+  body{display:block!important;overflow:visible!important;background:#fff!important;background-image:none!important;padding:0!important;color:#000}
+  .app{display:none!important}
+  #printArea{display:block;font-family:var(--font);color:#000}
+  #printArea h2{font-size:22px;margin:0 0 6px}
+  #printArea .pname{font-size:16px;margin-bottom:14px}
+  #printArea .ppaper{font-size:18px;line-height:2.2;border:1.5px solid #555;border-radius:10px;padding:14px 18px}
+  #printArea .ppaper p{margin:0} #printArea .ppaper .ind{padding-left:2em}
+  #printArea .blank{background:none;border-bottom:1px solid #000;border-radius:0;color:#777}
+  #printArea h3{font-size:17px;margin:18px 0 6px}
+  #printArea ul{list-style:none;padding:0;margin:0;font-size:16px;line-height:2.1}
+  #printArea .pnote{font-size:12px;color:#555;margin-top:14px}
+}
+
 @media (max-height:720px) and (min-width:761px){
   .panel{padding:12px 18px;gap:8px} .rcard{padding:12px;gap:6px} .qcard{padding:12px 16px;gap:8px} .opt{padding:8px 14px} .cover{min-height:150px}
 }
@@ -246,6 +315,8 @@ h1 em{font-style:normal;color:var(--orange)}
   .wdesc{overflow:visible} .whead .w{font-size:28px} .wnav button{width:42px;height:42px}
   .paper{flex:none} .bookset{grid-template-columns:1fr}
   .slot{min-width:84px}
+  .tabs.many{grid-template-columns:repeat(5,1fr)} .tabs.many .tab{padding:6px 4px} .tabs.many .tab b{font-size:12px;line-height:1.35}
+  .v9{grid-template-columns:1fr;flex:none} .rbtns{grid-template-columns:1fr} .checks{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -286,8 +357,11 @@ const TABS = [
   {view:'manga', tab:'① 何がこまった？', sub:'マンガをふり返る'},
   {view:'rule',  tab:'② 引用のルール',   sub:'かぎ・だん落'},
   {view:'quiz',  tab:'③ ルールクイズ',   sub:'auto'},
-  {view:'src',   tab:'④ 出典を書こう',   sub:'本から見つける'},
-  {view:'try',   tab:'⑤ 引用してみよう', sub:'文をえらぶ'},
+  {view:'mark',  tab:'④ どこが引用？',   sub:'色でくべつする'},
+  {view:'fix',   tab:'⑤ まちがいを直そう', sub:'ルールで直す'},
+  {view:'src',   tab:'⑥ 出典を書こう',   sub:'本から見つける'},
+  {view:'try',   tab:'⑦ 引用してみよう', sub:'文をえらぶ'},
+  {view:'write', tab:'⑧ 書いてみよう',   sub:'自分の本で・印刷'},
   {view:'words', tab:'重要語句',         sub:'ことばのいみ'}
 ];
 
@@ -354,7 +428,7 @@ const QUIZ = {
        low:'「② 引用のルール」を見なおしてから、もう一度ちょうせんしよう。'}
 };
 
-/* ④ 出典を書こう（本は、この練習のために作ったもの） */
+/* ⑥ 出典を書こう（本は、この練習のために作ったもの） */
 const BOOKS = [
   {c:'c-blue',   about:'ヤドカリがイソギンチャクを貝がらにつけているわけ', title:'海の生き物なかよし図かん', author:'海野みさき', pub:'なぎさ出版', year:'二〇二一年', page:'十八ページ',
    pageText:'ヤドカリは、イソギンチャクのはりに守られて、タコからにげることができます。'},
@@ -367,7 +441,7 @@ const SRC_ORDER = [
   {k:'author', name:'筆者名'}, {k:'title', name:'書名'}, {k:'pub', name:'出版社名'}, {k:'year', name:'発行年'}, {k:'page', name:'ページ'}
 ];
 
-/* ⑤ 引用してみよう（文章は、この練習のために作ったもの） */
+/* ⑦ 引用してみよう（文章は、この練習のために作ったもの） */
 const TRY = {
   book:0,
   sens:[
@@ -405,6 +479,93 @@ const TRY = {
   ],
   ng:'その文は、説明したいこととちがうよ。もう一度読んでみよう。'
 };
+
+/* ⑦ むずかしい：説明に「ひつような文」を、はじめの文から終わりの文まで えらぶ（a は [はじめ, 終わり]・0から） */
+const TRY_HARD = {
+  book:0,
+  sens:[
+    'ヤドカリは、海の底を歩き回る、エビやカニのなかまです。',
+    'ヤドカリの中には、貝がらの上にイソギンチャクをのせているものがいます。',
+    'タコは、八本の足で、海の底を動き回ります。',
+    'タコは、イソギンチャクのはりがきらいです。',
+    'そのため、イソギンチャクをのせたヤドカリは、タコにおそわれにくくなります。',
+    'ヤドカリの体が大きくなると、新しい貝がらにひっこします。',
+    'そのとき、ヤドカリは、イソギンチャクも新しい貝がらにうつします。'
+  ],
+  tasks:[
+    {q:'「イソギンチャクをのせたヤドカリが、タコにおそわれにくいのはなぜか」を説明したい。', a:[3,4],
+     intro:'イソギンチャクをのせたヤドカリが、タコにおそわれにくいわけについて、'},
+    {q:'「ヤドカリがひっこしをするとき、イソギンチャクはどうなるのか」を説明したい。', a:[5,6],
+     intro:'ヤドカリのひっこしとイソギンチャクについて、'},
+    {q:'「ヤドカリは、どんな生き物で、貝がらの上に何をのせているのか」を説明したい。', a:[0,1],
+     intro:'ヤドカリがどんな生き物かについて、'}
+  ],
+  extra:'ひつようのない文まで入っているよ。',
+  lack:'説明するのに、たりない文があるよ。「そのため」「そのとき」は、前の文とつながっているね。'
+};
+
+/* ④ どこが引用？（k：'own' 自分の言葉／'q' 引用した部分／'s' 出典。p：'ind' 新しい行で字を下げる、'new' 新しい行） */
+const MARK = [
+  {parts:[
+    {t:'　イソギンチャクがヤドカリを守る方法について、', k:'own'},
+    {t:'海野みさきさんは、', k:'s'}, {t:'「海の生き物なかよし図かん」', k:'s'}, {t:'（なぎさ出版、二〇二一年）', k:'s'},
+    {t:'の中で、', k:'own'},
+    {t:'「タコが近づくと、イソギンチャクはしょく手のはりで、タコをおいはらいます。」', k:'q'},
+    {t:'と説明しています。', k:'own'},
+    {t:'わたしは、イソギンチャクがヤドカリのボディーガードのようだと思いました。', k:'own'}]},
+  {parts:[
+    {t:'　カブトムシのよう虫の育ち方について、', k:'own'}, {t:'次のような説明があります。', k:'own'},
+    {t:'　カブトムシのよう虫は、土の中で落ち葉を食べて大きくなります。', k:'q', p:'ind'},
+    {t:'（森田ゆうき「カブトムシのくらし」', k:'s', p:'ind'}, {t:'みどり書房、二〇一九年、三十二ページ）', k:'s'},
+    {t:'　わたしは、落ち葉が食べ物になることにおどろきました。', k:'own', p:'new'}]},
+  {parts:[
+    {t:'　夕焼けが見えると、次の日の天気はどうなるのでしょうか。', k:'own'},
+    {t:'空井はるとさんの', k:'s'}, {t:'「雲と天気のふしぎ」', k:'s'}, {t:'（そよかぜ社、二〇二三年）', k:'s'},
+    {t:'には、', k:'own'},
+    {t:'「夕焼けが見えた次の日は、晴れることが多いといわれています。」', k:'q'},
+    {t:'と書かれています。', k:'own'},
+    {t:'だから、明日の遠足は、晴れるかもしれません。', k:'own'}]},
+  {parts:[
+    {t:'　ヤドカリのひっこしについて調べました。', k:'own'}, {t:'本には、次のように書かれていました。', k:'own'},
+    {t:'　ヤドカリの体が大きくなると、新しい貝がらにひっこします。', k:'q', p:'ind'},
+    {t:'（海野みさき「海の生き物なかよし図かん」', k:'s', p:'ind'}, {t:'なぎさ出版、二〇二一年、十八ページ）', k:'s'},
+    {t:'　ヤドカリが、一生のうちに何回ひっこしをするのか、', k:'own', p:'new'}, {t:'もっと調べてみたいです。', k:'own'}]}
+];
+
+/* ⑤ まちがいを直そう（bad:1 がまちがっているところ。rule は RULES の番号・0から） */
+const FIX_RULES = ['かぎや字下げで、自分の言葉と区別する', 'ひつような部分だけを引用する', '元の言葉を変えずにぬき出す', '出典を正しく書く'];
+const FIX = [
+  {about:'カブトムシのよう虫の育ち方', orig:'カブトムシのよう虫は、土の中で落ち葉を食べて大きくなります。', rule:0,
+   parts:[{t:'　カブトムシのよう虫の育ち方について、'}, {t:'森田ゆうきさんは、「カブトムシのくらし」（みどり書房、二〇一九年）の中で、'},
+          {t:'カブトムシのよう虫は、土の中で落ち葉を食べて大きくなります。', bad:1}, {t:'と説明しています。'}],
+   fixed:`<p>　カブトムシのよう虫の育ち方について、<span class="s-part">森田ゆうきさんは、「カブトムシのくらし」（みどり書房、二〇一九年）</span>の中で、<span class="q-part">「カブトムシのよう虫は、土の中で落ち葉を食べて大きくなります。」</span>と説明しています。</p>`,
+   e:'<b>かぎ（「　」）がない</b>ので、どこからどこまでが本の言葉なのか分かりません。'},
+  {about:'ヤドカリがイソギンチャクを貝がらにつけているわけ', orig:'ヤドカリは、イソギンチャクのはりに守られて、タコからにげることができます。', rule:2,
+   parts:[{t:'　ヤドカリがイソギンチャクを貝がらにつけているわけについて、'}, {t:'海野みさきさんは、「海の生き物なかよし図かん」（なぎさ出版、二〇二一年）の中で、'},
+          {t:'「ヤドカリは、イソギンチャクに守られて、タコからにげられます。」', bad:1}, {t:'と説明しています。'}],
+   fixed:`<p>　ヤドカリがイソギンチャクを貝がらにつけているわけについて、<span class="s-part">海野みさきさんは、「海の生き物なかよし図かん」（なぎさ出版、二〇二一年）</span>の中で、<span class="q-part">「ヤドカリは、イソギンチャクのはりに守られて、タコからにげることができます。」</span>と説明しています。</p>`,
+   e:'「はりに守られて」が「守られて」に、「にげることができます」が「にげられます」に<b>変わっています</b>。'},
+  {about:'夕焼けと次の日の天気', orig:'夕焼けが見えた次の日は、晴れることが多いといわれています。', rule:3,
+   parts:[{t:'　夕焼けと次の日の天気について、'}, {t:'本には', bad:1},
+          {t:'「夕焼けが見えた次の日は、晴れることが多いといわれています。」'}, {t:'と書いてありました。'}],
+   fixed:`<p>　夕焼けと次の日の天気について、<span class="s-part">空井はるとさんは、「雲と天気のふしぎ」（そよかぜ社、二〇二三年）</span>の中で、<span class="q-part">「夕焼けが見えた次の日は、晴れることが多いといわれています。」</span>と説明しています。</p>`,
+   e:'「本には」だけでは、<b>どの本か分かりません</b>。筆者名・書名・出版社名・発行年などを書きます。'},
+  {about:'イソギンチャクがヤドカリを守る方法', orig:'ヤドカリは、海の底を歩き回る、エビやカニのなかまです。ヤドカリの中には、貝がらの上にイソギンチャクをのせているものがいます。タコが近づくと、イソギンチャクはしょく手のはりで、タコをおいはらいます。ヤドカリの体が大きくなると、新しい貝がらにひっこします。', rule:1,
+   parts:[{t:'　イソギンチャクがヤドカリを守る方法について、次のような説明があります。'},
+          {t:'　ヤドカリは、海の底を歩き回る、エビやカニのなかまです。ヤドカリの中には、貝がらの上にイソギンチャクをのせているものがいます。タコが近づくと、イソギンチャクはしょく手のはりで、タコをおいはらいます。ヤドカリの体が大きくなると、新しい貝がらにひっこします。', p:'ind', bad:1},
+          {t:'（海野みさき「海の生き物なかよし図かん」なぎさ出版、二〇二一年、十八ページ）', p:'ind'}],
+   fixed:`<p>　イソギンチャクがヤドカリを守る方法について、次のような説明があります。</p><p class="ind"><span class="q-part">　タコが近づくと、イソギンチャクはしょく手のはりで、タコをおいはらいます。</span></p><p class="ind"><span class="s-part">（海野みさき「海の生き物なかよし図かん」なぎさ出版、二〇二一年、十八ページ）</span></p>`,
+   e:'説明したいことに関係のない文まで、<b>全部引用しています</b>。ひつような文は、1つだけです。'},
+  {about:'ヤドカリがどんな生き物か', orig:'ヤドカリは、海の底を歩き回る、エビやカニのなかまです。', rule:0,
+   parts:[{t:'　ヤドカリがどんな生き物かについて、次のような説明があります。'}, {t:'ヤドカリは、海の底を歩き回る、エビやカニのなかまです。', bad:1},
+          {t:'（海野みさき「海の生き物なかよし図かん」なぎさ出版、二〇二一年、十八ページ）'}],
+   fixed:`<p>　ヤドカリがどんな生き物かについて、次のような説明があります。</p><p class="ind"><span class="q-part">　ヤドカリは、海の底を歩き回る、エビやカニのなかまです。</span></p><p class="ind"><span class="s-part">（海野みさき「海の生き物なかよし図かん」なぎさ出版、二〇二一年、十八ページ）</span></p>`,
+   e:'<b>だん落を変えていない</b>ので、引用した文が自分の言葉とつながって見えます。だん落を変えて、字を下げて書きます。'}
+];
+const FIX_NG = 'そこは、まちがっていないよ。ほかのところをよく見よう。';
+
+/* ⑧ 書いてみよう（書いたことは、このブラウザにだけのこる） */
+const WRITE = { key:'inyou_write_v1' };
 
 /* 重要語句 */
 const WORDS = [
@@ -467,7 +628,7 @@ $('#title').innerHTML = UNIT.title;
 const VIEWS = {};
 let current = null;
 function drawTabs(){
-  const nav=$('#tabs'); nav.style.setProperty('--n', TABS.length);
+  const nav=$('#tabs'); nav.style.setProperty('--n', TABS.length); nav.classList.toggle('many', TABS.length>6);
   nav.innerHTML = TABS.map((t,i)=>{
     const sub = t.sub==='auto' ? QUIZ.qs.length+'もん' : t.sub;
     return `<button class="tab ${t.view==='words'?'words':''}" data-i="${i}"><b>${t.tab}</b><small>${sub}</small></button>`;
@@ -584,7 +745,7 @@ VIEWS.quiz = function(){
   $('#qReset').onclick=()=>{ qzNew(); VIEWS.quiz(); };
 };
 
-/* ===== ④ 出典を書こう ===== */
+/* ===== ⑥ 出典を書こう ===== */
 let sc4=null;
 function sc4New(){ sc4={b:0, slots:[null,null,null,null,null], chips:shuffle(SRC_ORDER.map(x=>x.k)), checked:false, done:[], sel:null, hl:null}; }
 function sc4Book(i){ sc4.b=i; sc4.slots=[null,null,null,null,null]; sc4.chips=shuffle(SRC_ORDER.map(x=>x.k)); sc4.checked=false; sc4.sel=null; sc4.hl=null; }
@@ -645,11 +806,12 @@ VIEWS.src = function(){
   $('#sReset').onclick=()=>{ sc4New(); VIEWS.src(); };
 };
 
-/* ===== ⑤ 引用してみよう ===== */
+/* ===== ⑦ 引用してみよう ===== */
 let tr=null;
 function trNew(){ tr={t:0, pick:null, bad:null, style:null, done:[]}; }
 trNew();
 VIEWS.try = function(){
+  if(trLv==='h'){ tryHard(); return; }
   const task=TRY.tasks[tr.t], bk=BOOKS[task.book??TRY.book], sens=task.sens||TRY.sens, s=sens[task.a];
   const found = tr.pick===task.a;
   let out='';
@@ -660,7 +822,7 @@ VIEWS.try = function(){
   }
   const allDone = TRY.tasks.every((x,i)=>tr.done[i]);
   panel.innerHTML = `
-    <div class="bar"><div class="lead">説明したいことに<b>ひつような文だけ</b>をえらんで、引用しよう。</div>
+    <div class="bar"><div class="btns" style="align-items:center">${lvSeg()}<div class="lead">説明したいことに<b>ひつような文だけ</b>をえらんで、引用しよう。</div></div>
       <div class="btns">${TRY.tasks.map((x,i)=>`<button class="btn ${i===tr.t?'main':''}" data-t="${i}">${tr.done[i]?'✓ ':''}もんだい${i+1}</button>`).join('')}
       <button class="btn" id="tReset">もう一度</button></div></div>
     <div class="v5">
@@ -693,6 +855,242 @@ VIEWS.try = function(){
   panel.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>go(+b.dataset.t));
   const nx=$('#tNext'); if(nx) nx.onclick=()=>go(tr.t+1);
   $('#tReset').onclick=()=>{ trNew(); VIEWS.try(); };
+  lvBind();
+};
+
+/* ===== 文を「p」ごとに組み立てる道具（④・⑤で使う） ===== */
+function partsHTML(parts, fn){
+  let html='', open=false;
+  parts.forEach((p,j)=>{
+    if(j===0 || p.p){ if(open) html+='</p>'; html+=`<p${p.p==='ind'?' class="ind"':''}>`; open=true; }
+    html+=fn(p,j);
+  });
+  return html+(open?'</p>':'');
+}
+/* 本から、かぎの引用文・だん落の引用文を作る（⑦ むずかしいで使う） */
+const kagiHTML = (bk,s) => `<p>　${bk.about}について、<span class="s-part">${bk.author}さんは、「${bk.title}」（${bk.pub}、${bk.year}）</span>の中で、<span class="q-part">「${s||bk.pageText}」</span>と説明しています。</p>`;
+const danHTML = (bk,s) => `<p>　${bk.about}について、次のような説明があります。</p><p class="ind"><span class="q-part">　${s||bk.pageText}</span></p><p class="ind"><span class="s-part">（${bk.author}「${bk.title}」${bk.pub}、${bk.year}、${bk.page}）</span></p>`;
+
+/* ===== ④ どこが引用？ ===== */
+let mk=null;
+function mkNew(){ mk={i:0, pen:'q', col:{}, checked:false, done:[]}; }
+function mkItem(i){ mk.i=i; mk.col={}; mk.checked=false; }
+mkNew();
+VIEWS.mark = function(){
+  const parts=MARK[mk.i].parts;
+  const kOf=j=>mk.col[j]||'own';
+  const allOk = mk.checked && parts.every((p,j)=>kOf(j)===p.k);
+  panel.innerHTML = `
+    <div class="bar"><div class="lead">ペンをえらんで、「引用した部分」と「出典」に色をぬろう。</div>
+      <div class="btns">${MARK.map((x,i)=>`<button class="btn ${i===mk.i?'main':''}" data-m="${i}">${mk.done[i]?'✓ ':''}もんだい${i+1}</button>`).join('')}
+      <button class="btn" id="mkReset">もう一度</button></div></div>
+    <div class="pens">
+      <button class="pen q ${mk.pen==='q'?'on':''}" data-pen="q">✏️ 引用した部分</button>
+      <button class="pen s ${mk.pen==='s'?'on':''}" data-pen="s">✏️ 出典</button>
+      <button class="pen x ${mk.pen==='x'?'on':''}" data-pen="x">けしゴム</button>
+      <span class="howto">ぬったところをもう一度おすと、色が消えるよ。何もぬらないところは「自分の言葉」。</span>
+    </div>
+    <div class="paper mkpaper ${allOk?'fin':''}">${partsHTML(parts,(p,j)=>{
+      const k=mk.col[j], bad=mk.checked&&kOf(j)!==p.k;
+      return `<span class="chunk mk ${k==='q'?'q-part':(k==='s'?'s-part':'')} ${bad?'bad':''}" data-j="${j}">${esc(p.t)}</span>`; })}</div>
+    <div class="bar"><div class="msg ${mk.checked?(allOk?'ok':'ng'):''}">${mk.checked?(allOk?'せいかい！ 自分の言葉と、引用した部分・出典を区別できたね。':'赤いわくのところがちがうよ。もう一度見てみよう。'):''}</div>
+      <div class="btns">${allOk?(mk.i<MARK.length-1?'<button class="btn main" id="mkNext">つぎのもんだいへ ›</button>':''):'<button class="btn main" id="mkCheck">こたえあわせ</button>'}</div></div>
+    <div class="tiny">※ 本と文章は、この練習のために作ったものです。</div>`;
+  panel.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{ mkItem(+b.dataset.m); VIEWS.mark(); });
+  panel.querySelectorAll('[data-pen]').forEach(b=>b.onclick=()=>{ mk.pen=b.dataset.pen; VIEWS.mark(); });
+  if(!allOk) panel.querySelectorAll('.mk').forEach(s=>s.onclick=()=>{
+    const j=+s.dataset.j;
+    if(mk.pen==='x' || mk.col[j]===mk.pen) delete mk.col[j]; else mk.col[j]=mk.pen;
+    mk.checked=false; VIEWS.mark();
+  });
+  const ck=$('#mkCheck'); if(ck) ck.onclick=()=>{
+    mk.checked=true;
+    if(parts.every((p,j)=>kOf(j)===p.k)){ pinpon(); mk.done[mk.i]=true; if(MARK.every((x,i)=>mk.done[i])) party(); } else bubu();
+    VIEWS.mark();
+  };
+  const nx=$('#mkNext'); if(nx) nx.onclick=()=>{ mkItem(mk.i+1); VIEWS.mark(); };
+  $('#mkReset').onclick=()=>{ mkNew(); VIEWS.mark(); };
+};
+
+/* ===== ⑤ まちがいを直そう ===== */
+let fx=null;
+function fxNew(){ fx={i:0, step:0, miss:null, rwrong:[], done:[]}; }
+function fxItem(i){ fx.i=i; fx.step=fx.done[i]?2:0; fx.miss=null; fx.rwrong=[]; }
+fxNew();
+VIEWS.fix = function(){
+  const it=FIX[fx.i];
+  panel.innerHTML = `
+    <div class="bar"><div class="lead">友だちの引用には、まちがいが1つあるよ。見つけて直そう。</div>
+      <div class="btns">${FIX.map((x,i)=>`<button class="btn ${i===fx.i?'main':''}" data-f="${i}">${fx.done[i]?'✓ ':''}${i+1}</button>`).join('')}
+      <button class="btn" id="fxReset">もう一度</button></div></div>
+    <div class="v5">
+      <div class="box srcbook fxbox" style="overflow:auto">
+        <div class="label">説明したいこと</div><div class="lead" style="font-size:16px">${it.about}</div>
+        <div class="orig"><b>本の文：</b>${esc(it.orig)}</div>
+        <div class="label" style="margin-top:4px">友だちが書いた文</div>
+        <div class="paper fxpaper ${fx.step>0?'fin':''}" style="flex:none">${partsHTML(it.parts,(p,j)=>
+          `<span class="chunk fxc ${fx.step>0&&p.bad?'found':''} ${fx.miss===j?'miss':''}" data-j="${j}">${esc(p.t)}</span>`)}</div>
+        <div class="tiny">※ 本と文章は、この練習のために作ったものです。</div>
+      </div>
+      <div class="step">
+        <div class="task"><small>もんだい${fx.i+1}</small>❶ まちがっているところを、左の文からおそう。</div>
+        <div class="msg ${fx.step>0?'ok':(fx.miss!==null?'ng':'')}">${fx.step>0?'せいかい！ そこがまちがっているね。':(fx.miss!==null?FIX_NG:'')}</div>
+        ${fx.step>0?`<div class="pop" style="display:flex;flex-direction:column;gap:10px">
+          <div class="lead">❷ どのルールを守っていないかな？</div>
+          <div class="rbtns">${FIX_RULES.map((r,i)=>fx.step===2&&i!==it.rule?'':`<button class="opt ${fx.step===2&&i===it.rule?'right':''} ${fx.rwrong.includes(i)?'wrong':''}" data-r="${i}" ${fx.step===2?'disabled':''}>${i+1}　${r}</button>`).join('')}</div>
+          ${fx.step===2?`<div class="fb ok"><b>せいかい！</b>　${it.e}</div>
+            <div class="lead">直した文</div><div class="paper pop" style="flex:none">${it.fixed}</div>
+            ${fx.i<FIX.length-1?'<div><button class="btn main" id="fxNext">つぎのもんだいへ ›</button></div>':(FIX.every((x,i)=>fx.done[i])?'<div class="msg ok">ぜんぶ直せたね！ 引用のルールが使えるようになったよ。</div>':'')}`:
+            (fx.rwrong.length?'<div class="msg ng">ざんねん…。もう一度、本の文とくらべてみよう。</div>':'')}
+        </div>`:''}
+      </div>
+    </div>`;
+  panel.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{ fxItem(+b.dataset.f); VIEWS.fix(); });
+  if(fx.step===0) panel.querySelectorAll('.fxc').forEach(s=>s.onclick=()=>{
+    const j=+s.dataset.j;
+    if(it.parts[j].bad){ fx.step=1; fx.miss=null; pinpon(); } else { fx.miss=j; bubu(); }
+    VIEWS.fix();
+  });
+  if(fx.step===1) panel.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{
+    const r=+b.dataset.r;
+    if(r===it.rule){ fx.step=2; pinpon(); fx.done[fx.i]=true; if(FIX.every((x,i)=>fx.done[i])) party(); }
+    else { if(!fx.rwrong.includes(r)) fx.rwrong.push(r); bubu(); }
+    VIEWS.fix();
+  });
+  if(fx.step===2){ const st=panel.querySelector('.step'); if(st) st.scrollTop=st.scrollHeight; }
+  const nx=$('#fxNext'); if(nx) nx.onclick=()=>{ fxItem(fx.i+1); VIEWS.fix(); };
+  $('#fxReset').onclick=()=>{ fxNew(); VIEWS.fix(); };
+};
+
+/* ===== ⑦ 引用してみよう（むずかしい：はじめの文と終わりの文をえらぶ） ===== */
+let trLv='n', th=null;
+function thNew(){ th={t:0, a:null, b:null, ok:false, bad:null, style:null, done:[]}; }
+thNew();
+const lvSeg = () => `<div class="seg lvseg"><button data-lv="n" class="${trLv==='n'?'on':''}">ふつう</button><button data-lv="h" class="${trLv==='h'?'on':''}">むずかしい</button></div>`;
+function lvBind(){ panel.querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{ trLv=b.dataset.lv; VIEWS.try(); }); }
+function tryHard(){
+  const bk=BOOKS[TRY_HARD.book], task=TRY_HARD.tasks[th.t], sens=TRY_HARD.sens;
+  const has = th.a!==null, s = th.ok ? sens.slice(th.a, th.b+1).join('') : '';
+  let out='';
+  if(th.ok && th.style==='kagi') out=kagiHTML({...bk, about:task.intro.replace(/について、$/,'')}, s);
+  if(th.ok && th.style==='dan')  out=danHTML({...bk, about:task.intro.replace(/について、$/,'')}, s);
+  const allDone = TRY_HARD.tasks.every((x,i)=>th.done[i]);
+  panel.innerHTML = `
+    <div class="bar"><div class="btns" style="align-items:center">${lvSeg()}<div class="lead">ひつような文を、<b>はじめの文から終わりの文まで</b>えらぼう。</div></div>
+      <div class="btns">${TRY_HARD.tasks.map((x,i)=>`<button class="btn ${i===th.t?'main':''}" data-t="${i}">${th.done[i]?'✓ ':''}もんだい${i+1}</button>`).join('')}
+      <button class="btn" id="tReset">もう一度</button></div></div>
+    <div class="v5">
+      <div class="box srcbook hardbook" style="overflow:auto">
+        <div class="label">本の文章（${bk.title}・${bk.page}）</div>
+        ${sens.map((x,i)=>`<button class="sen ${has&&i>=th.a&&i<=th.b?'rng':''} ${has&&i>=th.a&&i<=th.b&&th.bad?'bad':''}" data-i="${i}" ${th.ok?'disabled':''}>${x}</button>`).join('')}
+        <div class="tiny">※ この本と文章は、練習のために作ったものです。</div>
+      </div>
+      <div class="step">
+        <div class="task"><small>もんだい${th.t+1}（むずかしい）</small>${task.q}<br>❶ はじめの文をおして、つぎに終わりの文をおそう。</div>
+        <div class="msg ${th.ok?'ok':(th.bad?'ng':'')}">${th.ok?'せいかい！ この文を引用しよう。':(th.bad||'')}</div>
+        ${th.ok?'':`<div class="btns"><button class="btn main" id="thCheck" ${has?'':'disabled'}>こたえあわせ</button></div>`}
+        ${th.ok?`<div class="pop" style="display:flex;flex-direction:column;gap:10px">
+          <div class="lead">❷ どちらの書き方で引用する？</div>
+          <div class="seg"><button id="tK" class="${th.style==='kagi'?'on':''}">かぎ（「　」）を使う</button><button id="tD" class="${th.style==='dan'?'on':''}">だん落を変えて字を下げる</button></div>
+          ${out?`<div class="paper pop" style="flex:none">${out}</div>
+            <div class="legend"><span style="--k:var(--orange)">引用した部分（言葉を変えない）</span><span style="--k:var(--blue)">出典</span></div>
+            ${th.t<TRY_HARD.tasks.length-1?'<div><button class="btn main" id="tNext">つぎのもんだいへ ›</button></div>':(allDone?'<div class="msg ok">むずかしいもんだいも、ぜんぶできたね！</div>':'')}`:''}
+        </div>`:''}
+      </div>
+    </div>`;
+  lvBind();
+  panel.querySelectorAll('.sen').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i;
+    if(th.a===null || th.a!==th.b || i===th.a){ th.a=i; th.b=i; } else { th.a=Math.min(th.a,i); th.b=Math.max(th.b,i); }
+    th.bad=null; VIEWS.try();
+  });
+  const ck=$('#thCheck'); if(ck) ck.onclick=()=>{
+    const [x,y]=task.a;
+    if(th.a===x && th.b===y){ th.ok=true; th.bad=null; pinpon(); }
+    else { const m=[]; if(th.a<x||th.b>y) m.push(TRY_HARD.extra); if(th.a>x||th.b<y) m.push(TRY_HARD.lack); th.bad=m.join(' '); bubu(); }
+    VIEWS.try();
+  };
+  const setStyle=st=>{ th.style=st; if(!th.done[th.t]){ th.done[th.t]=true; if(TRY_HARD.tasks.every((x,i)=>th.done[i])) party(); } VIEWS.try(); };
+  const k=$('#tK'); if(k) k.onclick=()=>setStyle('kagi');
+  const d=$('#tD'); if(d) d.onclick=()=>setStyle('dan');
+  const go=t=>{ const tk=TRY_HARD.tasks[t]; th.t=t; th.ok=!!th.done[t]; th.a=th.ok?tk.a[0]:null; th.b=th.ok?tk.a[1]:null; th.bad=null; th.style=th.ok?'kagi':null; VIEWS.try(); };
+  panel.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>go(+b.dataset.t));
+  const nx=$('#tNext'); if(nx) nx.onclick=()=>go(th.t+1);
+  $('#tReset').onclick=()=>{ thNew(); VIEWS.try(); };
+}
+
+/* ===== ⑧ 書いてみよう ===== */
+const WR_FIELDS = [
+  {k:'about',  name:'説明したいこと', ph:'れい：ヤドカリがイソギンチャクを貝がらにつけているわけ', full:true},
+  {k:'quote',  name:'引用したい文（本のとおりに、一字も変えずに）', ph:'本の文を、そのまま書こう', full:true, rows:3},
+  {k:'author', name:'筆者名', ph:'れい：海野みさき'},
+  {k:'title',  name:'書名', ph:'れい：海の生き物なかよし図かん'},
+  {k:'pub',    name:'出版社名', ph:'れい：なぎさ出版'},
+  {k:'year',   name:'発行年', ph:'れい：二〇二一年'},
+  {k:'page',   name:'ページ', ph:'れい：十八ページ'},
+  {k:'name',   name:'名前', ph:'自分の名前'},
+  {k:'after',  name:'自分の考え（引用のあとに書く）', ph:'れい：わたしは、〜と思いました。', full:true, rows:2}
+];
+function wrLoad(){ try{ return JSON.parse(localStorage.getItem(WRITE.key)||'{}')||{}; }catch(e){ return {}; } }
+function wrSave(){ try{ localStorage.setItem(WRITE.key, JSON.stringify(wr)); }catch(e){} }
+let wr = Object.assign({style:'kagi'}, wrLoad());
+function wrPaper(){
+  const f=k=>{ const x=WR_FIELDS.find(y=>y.k===k); let v=String(wr[k]||'').trim();
+    if(k==='quote'||k==='title') v=v.replace(/^「([\s\S]*)」$/,'$1');
+    return v ? esc(v) : `<span class="blank">${x.name}</span>`; };
+  const after = String(wr.after||'').trim() ? esc(String(wr.after).trim()) : '';
+  if(wr.style==='dan') return `<p>　${f('about')}について、次のような説明があります。</p><p class="ind"><span class="q-part">　${f('quote')}</span></p><p class="ind"><span class="s-part">（${f('author')}「${f('title')}」${f('pub')}、${f('year')}、${f('page')}）</span></p>${after?`<p>　${after}</p>`:''}`;
+  return `<p>　${f('about')}について、<span class="s-part">${f('author')}さんは、「${f('title')}」（${f('pub')}、${f('year')}）</span>の中で、<span class="q-part">「${f('quote')}」</span>と説明しています。${after}</p>`;
+}
+function wrChecks(){
+  const has=k=>String(wr[k]||'').trim()!=='';
+  const list=[
+    ['説明したいことを書いた', has('about')],
+    ['引用したい文を書いた', has('quote')],
+    ['筆者名・書名・出版社名・発行年を書いた', ['author','title','pub','year'].every(has)],
+    [wr.style==='dan'?'ページを書いた':'自分の考えを書いた', wr.style==='dan'?has('page'):has('after')]
+  ];
+  return list.map(([t,ok])=>`<div class="${ok?'ok':'no'}">${ok?'✅':'⬜'} ${t}</div>`).join('');
+}
+function wrUpdate(){ const p=$('#wrPrev'), c=$('#wrChk'); if(p) p.innerHTML=wrPaper(); if(c) c.innerHTML=wrChecks(); }
+function wrPrint(){
+  let pa=document.getElementById('printArea');
+  if(!pa){ pa=document.createElement('div'); pa.id='printArea'; document.body.appendChild(pa); }
+  const nm=String(wr.name||'').trim();
+  pa.innerHTML = `<h2>引用する　― わたしの引用文 ―</h2>
+    <div class="pname">名前（ ${nm?esc(nm):'　　　　　　　　　　'} ）</div>
+    <div class="ppaper">${wrPaper()}</div>
+    <h3>たしかめよう</h3>
+    <ul><li>□ かぎ（「　」）や、だん落を変えて字を下げることで、自分の言葉と区別した。</li>
+      <li>□ 説明したいことに、ひつような部分だけを引用した。</li>
+      <li>□ 元の言葉を変えずに、そのままぬき出した。</li>
+      <li>□ 筆者名・書名・出版社名・発行年・ページなどの出典を書いた。</li></ul>
+    <div class="pnote">４年 国語　じょうほうのとびら「引用する」</div>`;
+  window.print();
+}
+VIEWS.write = function(){
+  panel.innerHTML = `
+    <div class="bar"><div class="lead">自分が調べている本から、引用する文を書いてみよう。</div>
+      <div class="btns"><div class="seg"><button data-st="kagi" class="${wr.style==='kagi'?'on':''}">かぎを使う</button><button data-st="dan" class="${wr.style==='dan'?'on':''}">だん落を変える</button></div>
+      <button class="btn" id="wrPrint">🖨 印刷</button><button class="btn" id="wrReset">もう一度</button></div></div>
+    <div class="v9">
+      <div class="box wform">${WR_FIELDS.map(x=>`<label class="${x.full?'full':''}">${x.name}${x.rows?`<textarea data-k="${x.k}" rows="${x.rows}" placeholder="${x.ph}">${esc(wr[x.k]||'')}</textarea>`:`<input data-k="${x.k}" value="${esc(wr[x.k]||'')}" placeholder="${x.ph}">`}</label>`).join('')}</div>
+      <div class="wout">
+        <div class="label">できあがり（書くと、ここにすぐ出るよ）</div>
+        <div class="paper" id="wrPrev">${wrPaper()}</div>
+        <div class="legend"><span style="--k:var(--orange)">引用した部分</span><span style="--k:var(--blue)">出典</span></div>
+        <div class="box checks" id="wrChk">${wrChecks()}</div>
+        <div class="tiny">※ 書いたことは、このパソコン（タブレット）のブラウザにだけのこります。</div>
+      </div>
+    </div>`;
+  panel.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',()=>{ wr[el.dataset.k]=el.value; wrSave(); wrUpdate(); }));
+  panel.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{ wr.style=b.dataset.st; wrSave(); VIEWS.write(); });
+  $('#wrPrint').onclick=wrPrint;
+  $('#wrReset').onclick=()=>{
+    const any=WR_FIELDS.some(x=>String(wr[x.k]||'').trim()!=='');
+    if(any && !confirm('書いたことを、ぜんぶけしますか？')) return;
+    wr={style:'kagi'}; wrSave(); VIEWS.write();
+  };
 };
 
 /* ===== 重要語句 ===== */
